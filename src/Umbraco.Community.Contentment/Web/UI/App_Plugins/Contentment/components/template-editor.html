@@ -1,0 +1,28 @@
+﻿
+<div class="umb-contentpicker">
+  <div ui-sortable="vm.sortableOptions" ng-model="vm.ngModel">
+    <div ng-repeat="item in vm.ngModel track by $index"
+         class="umb-node-preview"
+         ng-class="{'umb-node-preview--sortable': vm.allowSort, 'umb-node-preview--unpublished': published === false }"
+         ng-disabled="item.disabled">
+      <div lk-bind-html-template="vm.template"></div>
+      <div class="umb-node-preview__actions">
+        <button type="button"
+                class="umb-node-preview__action umb-node-preview__action--red"
+                ng-if="vm.canRemove(item, $index)"
+                ng-click="vm.remove(item)">
+          <localize key="general_remove">Remove</localize><span class="sr-only">&nbsp;{{name}}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <button type="button"
+          class="umb-node-preview-add"
+          id="{{vm.propertyAlias}}"
+          aria-label="{{vm.addButtonLabel}}"
+          ng-click="vm.add()"
+          ng-if="vm.allowAdd">
+    <span ng-bind="vm.addButtonLabel"></span>
+    <span class="sr-only">...</span>
+  </button>
+</div>

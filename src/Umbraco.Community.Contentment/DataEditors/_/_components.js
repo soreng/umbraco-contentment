@@ -29,6 +29,7 @@
                 onSort: "<?",
                 propertyActions: "<?",
                 previews: "<?",
+                template: "<?",
             },
             controllerAs: "vm",
             controller: [

@@ -50,7 +50,7 @@ angular.module("umbraco").controller("Umbraco.Community.Contentment.DataEditors.
             config.enableMultiple = Object.toBoolean(config.enableMultiple) && config.maxItems !== 1;
 
             vm.defaultIcon = config.defaultIcon;
-            vm.displayMode = "list";
+            vm.displayMode = config.displayMode || "list";
             vm.allowAdd = config.maxItems === 0 || $scope.model.value.length < config.maxItems;
             vm.allowEdit = false;
             vm.allowRemove = true;
